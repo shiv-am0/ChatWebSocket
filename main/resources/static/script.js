@@ -1,6 +1,7 @@
-import * as SockJS from 'sockjs-client';
-var sockjs = require('sockjs-client');
 var stompClient=null
+
+
+
 function sendMessage(){
 
 
@@ -20,7 +21,7 @@ function sendMessage(){
 function connect()
 {
 
-    let socket=new sockjs("/server")
+    let socket=new SockJS("/server1")
 
     stompClient=Stomp.over(socket)
 
@@ -33,7 +34,7 @@ function connect()
 
 
         //subscribe
-        stompClient.subscribe("/topic/return",function(response){
+        stompClient.subscribe("/topic/return-to",function(response){
 
             showMessage(JSON.parse(response.body))
 

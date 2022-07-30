@@ -13,14 +13,14 @@ public class MessageController {
         and send that message to everyone subscribed to "/topic/return" end point.
      */
     @MessageMapping("/message")
-    @SendTo("/topic/return")
+    @SendTo("/topic/return-to")
     public Message getContent(@RequestBody Message message) {
         //Try-Catch block to provide a delay of 2000ms.
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         return message;
     }
 }
